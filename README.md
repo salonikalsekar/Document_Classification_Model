@@ -1,7 +1,7 @@
 # Document_Classification_Model
 
 
-The Document Classification Model is based on the machine learning concepts and tools. 
+The Document Classification Model is based on the machine learning concepts. 
  The document used for testing contains labels in the first column and the values in the second column. It is a .csv document. The test cases folder contains all the documents used for testing the model.
 
 The first step carried out was studying the dataset provided which included document categories and it’s values. 
