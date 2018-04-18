@@ -7,7 +7,6 @@ The Document Classification Model is based on the machine learning concepts and 
 The first step carried out was studying the dataset provided which included document categories and it’s values. 
 
 The dataset was then split into training and testing sets based on the dataset provided. 
-The packages used for carrying out machine learning operations in Python was Scikit-Learn. 
 
 The model was entirely built from scratch and in this process got very well versed with the Machine Learning tools and advanced concepts. 
 Naïve Bayes algorithm and Normalization techniques were implemented. 
