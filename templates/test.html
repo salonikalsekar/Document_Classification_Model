@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<h1>Upload Your Dataset(CSV) File</h1> <h3> &nbsp; Where 1st column has decision class and 2nd column has values with space seperated </h3>
+
+    <form action="/read" method="POST" enctype="multipart/form-data">
+
+        <label for="user_file">Upload Your File</label>
+        <br></br>
+        <input type="file" name="user_file">
+        <br></br>
+        <button type="submit">Upload</button>
+
+    </form>
+
+</body>
+
+{#{{ message }}#}
+{#{{ probability }}#}
+
+    {% if failureMessage %}
+        <br>
+        {{ failureMessage }}
+        <br>
+    {% else %}
+        <br>
+        {{ message }}
+        <br>
+        The <u>Length of the test set</u> is: {{ lenghtOfTestSet }}
+        <br>
+        <br>
+        Total <u>Correct Predictions</u> are: {{ totalCorrectPrediction }}
+        <br>
+        <br>
+        The final <u>probability</u> is: {{ finalProbability }}
+        <br>
+        <br>
+        The <u>most appeared label</u> in the training phase(Highest unique values) was: {{ max1Lable }}
+        <br>
+        <br>
+        The <u>second most appeared label</u> in the training phase(second highest unique values) was: {{ max2Lable }}
+        <br>
+        <br>
+        The printable confusion matrix is:
+        {% block cm %}
+
+            <table>
+            {% for key, value in confusionMatrix.items() %}
+               <tr>
+                    <th> {{ key }} </th>
+                    <td> {{ value }} </td>
+               </tr>
+            {% endfor %}
+            </table>
+
+        {% endblock %}
+        <br>
+    {% endif %}
+
+</html>
