@@ -5,26 +5,11 @@ import model
 from werkzeug.utils import secure_filename
 app = Flask(__name__)
 
-ALLOWED_EXTENSIONS = ['csv', 'xlsx']
+ALLOWED_EXTENSIONS = ['csv']
 
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit ('.', 1)[1].lower () in ALLOWED_EXTENSIONS
-
-
-def readFile(filename, file):
-    print("readFile method begins")
-    print("the file contents are: ", pprint.pprint(file))
-    readFlag = True
-    try:
-        df = pd.read_csv (file, encoding='cp1252')
-        totalCorrectPrediction, lenghtOfTestSet, finalProbability, max1Lable, max2Lable, confusionMatrix = model.calculate (df)
-        print ("readFile method ends")
-        return totalCorrectPrediction, lenghtOfTestSet, finalProbability, max1Lable, max2Lable, confusionMatrix, readFlag
-    except:
-        print ("Key not found")
-        readFlag = False
-        return readFlag
 
 
 @app.route('/', methods=['GET'])
