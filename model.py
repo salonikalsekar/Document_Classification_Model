@@ -1,8 +1,4 @@
-import pandas as pd
-import pprint
 import numpy as np
-from sklearn.model_selection import train_test_split
-
 billLable = ""
 
 def generate_dict(temp_dict, value):
@@ -145,20 +141,10 @@ def calculate(file):
     # df = pd.read_csv(file, header=None,
     #                  delimiter=",")
     df = file
-
     print(len(df))
-
     msk = np.random.rand (len (df)) < 0.8
-
     train = df[msk]
-
     test = df[~msk]
-
-
-
-    # train, test = train_test_split(df, test_size=0.20)
-
-    # print(len(train) , " ", len(test))
 
     train_set = {}
     words_count_set = {}

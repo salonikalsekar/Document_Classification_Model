@@ -1,11 +1,9 @@
-import os
 import pandas as pd
 import pprint
 from flask import Flask, render_template, request, redirect
 import model
 from werkzeug.utils import secure_filename
 app = Flask(__name__)
-
 
 ALLOWED_EXTENSIONS = ['csv', 'xlsx']
 
@@ -53,6 +51,7 @@ def postFile():
         totalCorrectPrediction, lenghtOfTestSet, finalProbability, max1Lable, max2Lable, confusionMatrix = model.calculate (
             df)
         print("Done With the function")
+        finalProbability = str(round (finalProbability *100, 4)) + "%"
         return render_template ('test.html', message="The Results Are: ",
                                 totalCorrectPrediction=totalCorrectPrediction, lenghtOfTestSet=lenghtOfTestSet,
                                 finalProbability=finalProbability,
